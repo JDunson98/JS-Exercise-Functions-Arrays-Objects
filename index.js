@@ -256,9 +256,8 @@ function getCarInfoByIndex(inventory, index) {
  * it will return `This is a Lincoln Town Car`.
 */
 function getLastCarInfo(inventory) {
-  var log = require('./data/inventory.js');
- exports = inventory[49];
-  return `This is a ${exports.car_make} ${exports.car_model}`
+  const car = inventory[inventory.length - 1];
+  return `This is a ${car.car_make} ${car.car_model}`
 }
 
 /**
@@ -271,14 +270,11 @@ function getLastCarInfo(inventory) {
  * getModelYears returns an array containing all the 'car_year's in the inventory.
 */
 function getModelYears(inventory) {
-  var log = require('./data/inventory.js');
-  exports = inventory[49];
-  const newArray = [];
-  let i;
-  for (i = 0; i < exports.length; i++) {
-    newArray.push(exports.car_year);
+  const carYears = [];
+  for (let i = 0; i < inventory.length; i++) {
+    carYears.push(inventory[i].car_year);
   }
-  return newArray;
+  return carYears;
 }
 
 /**
